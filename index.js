@@ -3,8 +3,12 @@ const { connection } = require("./db")
 const {RegisterRoute} =require('./routes/regRouter')
 const {LoginRoute} =require('./routes/logRouter')
 const {CalRegModel} =require("./Model/RegSchema")
+const cors=require("cors")
 
 const app=express()
+app.use(cors({
+    origin:"*"
+  }))
 
 app.use(express.json())
 app.use('/register',RegisterRoute)
